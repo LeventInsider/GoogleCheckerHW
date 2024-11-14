@@ -15,13 +15,14 @@ driver.maximize_window()
 # Navigate to Google
 driver.get("https://www.google.com/")
 
-# Assert the element with class "lnXdpd" (adjust as needed for the specific Google page you're using)
+# Assert the element with class "lnXdpd" should NOT be found (test should fail if element is found)
 try:
     element = driver.find_element(By.CLASS_NAME, "lnXdpd")
-    assert element.is_displayed()  # Check if the element is visible
-    print("Element found and is visible.")
+    # If the element is found, assert False to fail the test
+    assert not element.is_displayed()  # This will fail if the element is visible
+    print("Test passed: Element should not be visible, and it is not.")
 except AssertionError:
-    print("Element with class 'lnXdpd' not found or not visible.")
+    print("Test failed: Element with class 'lnXdpd' is visible as expected.")
 except Exception as e:
     print(f"An error occurred: {e}")
 
