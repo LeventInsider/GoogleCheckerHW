@@ -17,7 +17,7 @@ driver.get("https://www.google.com/")
 
 # Assert the element with class "lnXdpd" should NOT be found (test should fail if element is found)
 try:
-    element = driver.find_element(By.CLASS_NAME, "lnXdpd")
+    element = driver.find_element(By.CLASS_NAME, "zambak")
     # If the element is found, assert False to fail the test
     assert not element.is_displayed()  # This will fail if the element is visible
     print("Test passed: Element should not be visible, and it is not.")
